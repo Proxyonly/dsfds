@@ -7,7 +7,7 @@ Start-Sleep -Seconds 1
 Clear-Host
 
 Write-Host "=============================================" -ForegroundColor Cyan
-Write-Host "   DMA (Direct Memory Access) Security Scan" -ForegroundColor White
+Write-Host "   CheatGuard DMA Security Scan" -ForegroundColor White
 Write-Host "   Scanning system memory for threats..." -ForegroundColor Yellow
 Write-Host "=============================================" -ForegroundColor Cyan
 Write-Host ""
